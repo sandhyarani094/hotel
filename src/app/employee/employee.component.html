@@ -1,0 +1,83 @@
+<table class='table'>
+    <thead>
+        <tr>
+            <th>employeeName</th>
+            <th>employeeAge</th>
+            <th>Designation</th>
+            <th>Date of Joining</th>
+            <th>employeeSalary</th>
+            <th>gender</th>
+            <th>vaccinationStatus</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let emp of empList">
+            <td>{{ emp.employeeName }}</td>
+            <td>{{ emp.employeeAge }}</td>
+            <td>{{ emp.designation }}</td>
+            <td>{{ emp.dateOfJoining }}</td>
+            <td>{{ emp.employeeSalary }}</td>
+            <td>{{ emp.gender }}</td>
+            <td>{{ emp.vaccinationStatus }}</td>
+        </tr>
+    </tbody>
+</table>
+<div class="container">
+    <div [hidden]="submitted">
+        <h1>Employee Form</h1>
+        <form (ngSubmit)="onSubmit()" #empForm="ngForm">
+            <div class="form-group">
+                <label for="employeeName">Name</label>
+                <input type="text" class="form-control" id="employeeName" required [(ngModel)]="model.employeeName" name="employeeName"
+                   placeholder="Enter your Name">
+                <!-- <div [hidden]="employeeName.valid || employeeName.pristine" class="alert alert-danger">
+                    employeeName is required
+                </div> -->
+            </div>
+
+            <div class="form-group">
+                <label for="designation">Designation</label>
+                <input type="text" class="form-control" id="designation" required [(ngModel)]="model.designation" name="designation"
+                   placeholder="Enter your designation">
+                <!-- <div [hidden]="designation.valid || designation.pristine" class="alert alert-danger">
+                    Designation is required
+                </div> -->
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select name="gender" id="gender"class="form-control" [(ngModel)]="model.gender">
+                    <option *ngFor="let x of genderList" [ngValue]="x">{{x}}</option>
+                  </select>
+                <!-- <div [hidden]="gender.valid || gender.pristine" class="alert alert-danger">
+                    Gender is required
+                </div> -->
+            </div>
+            <div class="form-group">
+                <label for="employeeAge">Age</label>
+                <input type="number" class="form-control" id="employeeAge" required [(ngModel)]="model.employeeAge" name="employeeAge"
+                  >
+                <!-- <div [hidden]="employeeAge.valid || employeeAge.pristine" class="alert alert-danger">
+                    employeeAge is required
+                </div> -->
+            </div>
+
+            <div class="form-group">
+                <label for="employeeSalary">Salary</label>
+                <input type="number" class="form-control" id="employeeSalary" required [(ngModel)]="model.employeeSalary" name="employeeSalary"
+                   >
+                <!-- <div [hidden]="employeeSalary.valid || employeeSalary.pristine" class="alert alert-danger">
+                    employeeSalary is required
+                </div> -->
+            </div>
+
+            <button type="submit" class="btn btn-success">Submit</button>
+           
+
+
+        </form>
+    </div>
+
+</div>
+<!-- <app-lms #childView></app-lms>
+<button (click)="getAlertFromLms()">Alert</button> -->

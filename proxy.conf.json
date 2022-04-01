@@ -1,0 +1,6 @@
+{
+  "/api": {
+    "target": "http://gms.eshram.gov.in",
+    "secure": false
+  }
+}
